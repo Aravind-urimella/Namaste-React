@@ -1,1 +1,201 @@
+1.What is `NPM`?
+Ans :  NPM is basically used for managing our packages.this offically name is not node package manager .but it basically 
+       doing the same thing .
+
+
+2.- What is `Parcel/Webpack`? Why do we need it?
+ans:  arcel and webpack are the bundlers .Bundler is a tool which takes our source code and assests and combine
+     them into a single bundle that can be loaded by a web browser. The purpose of a bundler is to make it easier to 
+      build and deploy web applications by handling tasks such as,
+
+    - Transforming and Optimizing code and assests: For example, a bundler might transpile modern javascript code to  
+      be compatible with old browsers, or minify CSS and Javascript file to reduce their size.
+    - Managing Dependencies: A bundler can help us to manage out packages and libraries that our application  
+      depends on, and automatically include them in our bundle.
+
+-->.what is parcel in react?
+ans: Parcel is a "Blazing fast, zero configuration web application bundler.
+    "This means it handles a lot of the hard bundling stuff for you under the hood and 
+     allows you to create a relatively lean setup of React (or any other web project that
+     requires bundling 
+
+3 - What is `.parcel-cache`
+ans: The cache feature of the bundler is used to stores the results of certain operations in order to speed up
+     the build process. When bundler runs, it will check the cached version instead of running the operation again.
+     This can significantly speed up the build process, especially for large projects with many dependencies.
+
+4.What is `npx` ?
+ans: npx is a tool that is included with npm, the package manager for JavaScript. It allows you to run npm
+      packages that you have installed locally or globally.npx can be used to run executables from local or
+     global packages, without the need to install them globally.
+
+---- in simple words , with the help of npx, we're telling node.js i have package manager , dont install in the project 
+       rather download code and execute directly . 
+
+
+5.difference btw   devDependency and  Dependencies 
+
+.what is devDependency ?
+Ans : 
+--> devDependencies are those packages in the package.json file that you need only for project development purposes. Example- Babel, Webpack,parcel etc.
+-->These types of dependencies are required during the web application development process but not while testing or executing it.  
+-->For adding devDependencies to your project, run the below command: npm install -D parcel  .
+
+.what is Dependencies 
+
+ans :
+
+-->Dependency is an object that contains the library, which your project requires for production environments and functioning effectively. 
+-->You require these packages to test and run your project on the localhost. 
+--> You can add dependencies to the package.json file by running the below command:   :  npm install 
+
+
+6.What is Tree Shaking?
+ans : in production builds, Bundler (webpack , or parcel.etc ) statically analyzes the imports and exports of each module and removes
+everything  that is not used .this is called tree shacking or dead code elimination .
+ - This can help reduce the
+   size of our application and improve its performance.
+
+7.What is Hot Module Replacement?
+ans :Hot Module Replacement (HMR) is a feature that improves the developer experience by automatically updating modules in the browser 
+     at runtime ,without needing a whole page refresh . 
+
+---> how does it know ? ans: there is a something called file watchers alogaritham in c++ .
+
+
+8. List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
+--> Created Server
+-->HMR - Hot module Replacement
+-->file watching algoritham in C++
+-->BUNDLING
+-->MINIFY
+-->Cleaning our code
+-->Dev abd production build
+-->super fast build algorithm
+-->Image Optimization
+-->chaching while development
+-->compression
+-->compatble our older versions of browser
+-->HTTPS on dev 
+-->port number 
+-->consistent Hashing algorithm 
+-->zero congi
+-->Tree shaking : removing un wanted code
+
+Minification: also known as minimization, is the process of removing all unnecessary characters from JavaScript source code
+              without altering its functionality. This includes the removal of whitespace, comments, 
+              and semicolons, along with the use of shorter variable names and functions.
+
+Bundling:
+              Bundling is the process of combining multiple files, such as JavaScript and CSS files, into a single
+              file or group of files. This is often done to improve the performance of a web application by reducing
+              the number of HTTP requests that the client needs to make to the server.
+
+9 .What is `.gitignore`? What should we add and not add into it?
+ans : gitignore file is a text file that tells Git which files or folders to ignore in a project.
+      
+    
+   Folders generated by package managers, such as npm’s node_modules folder. This is a folder used for
+   saving and tracking the dependencies for each package you install locally.
+   Files that contain sensitive data and personal information. Some examples of such files are files with
+   your credentials (username and password) and files with environment variables like .env files (.env
+   files contain API keys that need to remain secure and private).
+   Runtime files, such as .log files. They provide information on the Operating System’s usage activities
+   and errors, as well as a history of events that have taken place within the OS.
+
+   It is not recommended to add files that are necessary for your application to run, or that are tracked
+   by Git, to your .gitignore file. These files should be committed to your repository, so that they can be
+   shared with other developers and deployed to production environments.
+ 
+10.What is the difference between `package.json` and `package-lock.json`?
+
+                                package.json                                                       package-lock.json    
+
+   --> The package.json file is the core of any node project.            -->   The package-lock.json is a lockfile that holds information on the 
+        It stores critical metadata about a project                            dependencies or packages installed for a node.js project,
+        that is necessary before releasing IT to npm,                            including their exact version numbers. 
+       and it also specifies the functional properties
+        of a project that npm utilizes.                                                                          
+                                                                               
+      
+  --->   It stores the minimum version required by your program.        -->Keeps track of the exact version of each installed package,
+              If you upgrade the versions of a certain package,               allowing you to reinstall it. Future installations 
+                 the change will not be shown here.                           will be able to generate the same dependency tree.  
+        
+                                                               
+   -->   The package for your project. json is the primary format        -->Its objective is to offer an immutable version of package.json,
+             for configuring and describing how to communicate with           so you may fetch an earlier version of your code and end up 
+              and execute your application. he npm CLI utilizes it to          with the same node_modules folder. 
+             distinguish your project and comprehend
+              how to handle its dependencies.
+   
+  -->     it can be created in two ways                                  --> npm install automatically creates a package-lock.json.
+          1. nmp init  
+          2. Writing directly: write into the file with
+          all the necessary information         
+
+11. Why should I not modify `package-lock.json`?
+ans : We should not modify package-lock.json because it is a generated file that is used to lock the versions
+      of the packages in our project's dependencies and devDependencies to a specific version.
+
+12.  - What is `node_modules` ? Is it a good idea to push that on git?  
+ans : The node_modules directory can contain many subdirectories, one for each package that is installed.
+        These subdirectories contain the package's code, as well as any dependencies that the package has.
+       It is just like a database for our npm. It has many helper functions.
+
+
+13. What is the `dist` folder?
+
+ans:  basically keeps the fills minifed for us . 
+      when we type npx parcel index.html , it just create a development version of our project for us .and host it on server 
+
+      It is typically the directory where the final, production-ready version of a web application is built.
+
+      It usually contained the final, minified and optimised version of the application's code, as well as
+      any assests such as images and fonts that are needed for the application to run.
+      The contents of the 'dist' directory are usually what is deployed to a web server in order to make
+      application available to users.  
+
+14.What is 'Browserlist'?
+ans : Browserlist is a thing which makes our code compatible for a lot of browsers
+
+====================================================================================
+5. ^ - caret and ~ - tilda
+
+                      caret(^)                                               tilda(~)
+                             
+    1. Used for Compatible with version.                             1. Used for Approximately equivalent to version.
+    2. It will update you to all future minor/patch versions,        2. It will update you to all future patch versions, 
+       without incrementing the major version.                          without incrementing the minor version. 
+       ^2.3.4 will use releases from 2.3.4 to <3.0.0                    ~1.2.3 will use releases from 1.2.3 to <1.3.
+    3. It will update to its latest version in numbers.              3.It will update in decimals.
+    4.Used by NPM as default notation EXAMPLE : ^1.0.2               4.Not a default notation used by NPM.  EXAMPLE :~1.0.2
+        
+
+
+
+  
+
+======= Parcel do ===========
+--> Created Server
+-->HMR - Hot module Replacement
+-->file watching algoritham in C++
+-->BUNDLING
+-->MINIFY
+-->Cleaning our code
+-->Dev abd production build
+-->super fast build algorithm
+-->Image Optimization
+-->chaching while development
+-->compression
+-->compatble our older versions of browser
+-->HTTPS on dev 
+-->port number 
+-->consistent Hashing algorithm 
+-->zero congi
+-->Tree shaking : removing un wanted code
+
+
+
+
 
